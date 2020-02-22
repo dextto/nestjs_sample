@@ -6,9 +6,10 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { Connection } from 'typeorm';
 import { SignsModule } from './signs/signs.module';
 import { TeamsModule } from './teams/teams.module';
+import { TeamMembersModule } from './team-members/team-members.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), UsersModule, SignsModule, TeamsModule],
+  imports: [TypeOrmModule.forRoot(), UsersModule, SignsModule, TeamsModule, TeamMembersModule],
   controllers: [AppController],
   providers: [AppService],
 })
