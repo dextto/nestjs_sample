@@ -8,7 +8,7 @@ import { SignsModule } from './signs/signs.module';
 import { TeamsModule } from './teams/teams.module';
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), UsersModule, SignsModule],
+  imports: [TypeOrmModule.forRoot(), UsersModule, SignsModule, TeamsModule],
   controllers: [AppController],
   providers: [AppService],
 })
