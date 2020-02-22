@@ -7,7 +7,7 @@ export class SignsController {
     constructor(private readonly signsService: SignsService) {}
 
     @Get(':userId')
-    find(@Param('userId') userId: number) {
+    async find(@Param('userId') userId: number) {
         return this.signsService.find(userId);
     }
 
