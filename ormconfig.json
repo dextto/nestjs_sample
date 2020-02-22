@@ -1,0 +1,16 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "wallet_dev",
+  "password": "12341234",
+  "database": "nestjs_typeorm_example",
+  "synchronize": false,
+  "logging": false,
+  "entities": ["dist/**/*.entity{.ts,.js}"],
+  "migrationsRun": true,
+  "migrations": ["dist/migration/**/*{.ts,.js}"],
+  "cli": {
+    "migrationsDir": "src/migration"
+  }
+}
