@@ -1,16 +1,18 @@
-import { Controller, Post, Param, Body } from '@nestjs/common';
+import { Controller, Post, Body, UseGuards, SetMetadata } from '@nestjs/common';
 import { TeamsService } from './teams.service';
 import { CreateTeamDto } from './dto/team.dto';
+import { RolesGuard } from 'src/roles.guard';
+import { Roles } from 'src/roles.decorator';
 
 @Controller('teams')
+@UseGuards(RolesGuard)
 export class TeamsController {
     constructor(private readonly teamsService: TeamsService) {}
 
     @Post()
-    async create(
-        @Body() createTeamDto: CreateTeamDto
-    ) {
+    @Roles('admin')
+    async create(@Body() createTeamDto: CreateTeamDto) {
         this.teamsService.create(createTeamDto);
     }
-    
+
 }
