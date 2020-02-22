@@ -10,7 +10,6 @@ export class Sign {
   @Column()
   url: string;
 
-  @ManyToOne(type => User)
-  @JoinColumn()
-  user: User
+  @ManyToOne(type => User, user => user.signs)
+  user: User;
 }
