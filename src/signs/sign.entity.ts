@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn, Unique } from 'typeorm';
 import { User } from 'src/users/user.entity';
 
 @Entity()
+@Unique(["url"])
 export class Sign {
   @PrimaryGeneratedColumn()
   id: number;
