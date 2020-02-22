@@ -1,9 +1,7 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
+import { UsersService } from './users.service';
 
 @Controller('user')
 export class UsersController {
-  @Get()
-  findAll(): string {
-    return '!!!';
-  }
+  constructor(private readonly usersService: UsersService) {}
 }

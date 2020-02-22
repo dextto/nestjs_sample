@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Delete } from '@nestjs/common';
 import { SignsService } from './signs.service';
 import { CreateSignDto } from './dto/sign.dto';
 
@@ -16,8 +16,13 @@ export class SignsController {
         @Param('userId') userId: number,
         @Body() createSignDto: CreateSignDto
     ) {
-        console.log(userId);
-        console.log(createSignDto.url);
         this.signsService.create(userId, createSignDto);
+    }
+
+    @Delete(':signId')
+    async delete(
+        @Param('signId') signId: number,
+    ) {
+        this.signsService.delete(signId);
     }
 }
