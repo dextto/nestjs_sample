@@ -1,7 +1,7 @@
 import { Controller, UseGuards, Post, Body } from '@nestjs/common';
 import { TeamMembersService } from './team-members.service';
-import { RolesGuard } from 'src/roles.guard';
-import { Roles } from 'src/roles.decorator';
+import { RolesGuard } from '../roles.guard';
+import { Roles } from '../roles.decorator';
 import { CreateTeamMemberDto } from './dto/team-member.dto';
 
 @Controller('team_members')

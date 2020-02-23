@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, BaseEntity, OneToOne, JoinColumn, Column } from 'typeorm';
-import { User } from 'src/users/user.entity';
-import { Team } from 'src/teams/team.entity';
+import { User } from '../users/user.entity';
+import { Team } from '../teams/team.entity';
 
 @Entity()
 export class TeamMember extends BaseEntity {

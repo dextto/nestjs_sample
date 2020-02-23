@@ -12,7 +12,10 @@ describe('SignsService', () => {
     service = module.get<SignsService>(SignsService);
   });
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
+  it('mock test', () => {
+    // expect(service).toBeDefined();
+    const mockFn = jest.fn();
+    let res = mockFn();
+    console.log(res);
   });
 });

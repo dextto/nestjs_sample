@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity } from 'typeorm';
-import { Sign } from 'src/signs/sign.entity';
+import { Sign } from '../signs/sign.entity';
 
 export enum UserRole {
   USER = "user",

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Team } from './team.entity';
 import { Repository } from 'typeorm';
 import { CreateTeamDto } from './dto/team.dto';
-import { Sign } from 'src/signs/sign.entity';
+import { Sign } from '../signs/sign.entity';
 
 @Injectable()
 export class TeamsService {

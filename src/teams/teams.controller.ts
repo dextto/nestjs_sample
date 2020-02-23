@@ -1,8 +1,8 @@
 import { Controller, Post, Body, UseGuards, Get, Param } from '@nestjs/common';
 import { TeamsService } from './teams.service';
 import { CreateTeamDto } from './dto/team.dto';
-import { RolesGuard } from 'src/roles.guard';
-import { Roles, MemberRoles } from 'src/roles.decorator';
+import { RolesGuard } from '../roles.guard';
+import { Roles, MemberRoles } from '../roles.decorator';
 
 @Controller('teams')
 @UseGuards(RolesGuard)
