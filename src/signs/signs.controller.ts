@@ -4,14 +4,14 @@ import { CreateSignDto } from './dto/sign.dto';
 
 @Controller('signs')
 export class SignsController {
-    constructor(private readonly signsService: SignsService) {}
+    constructor(private readonly signsService: SignsService) { }
 
-    @Get(':userId')
+    @Get('/user_id/:userId')
     async find(@Param('userId') userId: number) {
         return this.signsService.find(userId);
     }
 
-    @Post(':userId')
+    @Post('/user_id/:userId')
     async create(
         @Param('userId') userId: number,
         @Body() createSignDto: CreateSignDto
