@@ -33,8 +33,6 @@ describe('UsersService', () => {
 
   it('can find all users', async () => {
     const usersFromDb: User[] = await service.findAll();
-    console.log(usersFromDb);
-
     expect(Array.isArray(usersFromDb)).toBeTruthy();
     expect(usersFromDb[0].id).toBe(1);
     expect(usersFromDb[0].name).toBe('test name');
