@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body, Delete } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Delete, HttpCode } from '@nestjs/common';
 import { SignsService } from './signs.service';
 import { CreateSignDto } from './dto/sign.dto';
 
@@ -13,6 +13,7 @@ export class SignsController {
 
     // TODO: apply ExceptionFiter
     @Post('/user_id/:userId')
+    @HttpCode(201)
     async create(
         @Param('userId') userId: number,
         @Body() createSignDto: CreateSignDto

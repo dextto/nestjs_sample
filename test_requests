@@ -1,10 +1,14 @@
+<< Sign >>
 curl -v http://127.0.0.1:3000/signs/user_id/1 -X POST -H "Content-Type: application/json" -d '{ "url": "test1.png" }'
-
 curl -v http://127.0.0.1:3000/signs/user_id/1
 curl -v http://127.0.0.1:3000/signs/11 -X DELETE
 
 
-
-curl -v http://127.0.0.1:3000/team_members -X POST -H "Content-Type: application/json" -d '{ "userId": 1, "teamId": 1, "can_read_teamsign": false, "can_update_teamsign": false, "can_delete_teamsign": false }'
+<< Team >>
+curl -v http://127.0.0.1:3000/teams -X POST -H "Content-Type: application/json" -d '{ "signId": 1 }'
 
 curl -v http://127.0.0.1:3000/teams/1/sign
+
+
+<< TeamMembers >>
+curl -v http://127.0.0.1:3000/team_members -X POST -H "Content-Type: application/json" -d '{ "userId": 1, "teamId": 1, "can_read_teamsign": false, "can_update_teamsign": false, "can_delete_teamsign": false }'
