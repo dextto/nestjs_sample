@@ -11,12 +11,13 @@ export class SignsController {
         return this.signsService.find(userId);
     }
 
+    // TODO: apply ExceptionFiter
     @Post('/user_id/:userId')
     async create(
         @Param('userId') userId: number,
         @Body() createSignDto: CreateSignDto
     ) {
-        this.signsService.create(userId, createSignDto);
+        return this.signsService.create(userId, createSignDto);
     }
 
     @Delete(':signId')
