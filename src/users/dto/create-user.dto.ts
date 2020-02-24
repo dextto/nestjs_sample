@@ -7,7 +7,7 @@ export class CreateUserDto {
   @IsString()
   name: string;
 
-  @ApiProperty({ enum: UserRole, default: [UserRole.USER], isArray: true })
+  @ApiProperty({ enum: UserRole, default: UserRole.USER })
   @IsString()
   role: UserRole;
 }
