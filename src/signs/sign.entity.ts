@@ -11,6 +11,9 @@ export class Sign extends BaseEntity {
   @Column()
   url: string;
 
+  @Column()
+  userId: number;
+
   @ManyToOne(type => User, user => user.signs)
   user: User;
 }
