@@ -1,11 +1,11 @@
-import { Controller, Post } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { Payload } from '@nestjs/microservices';
 import { CreateUserDto } from './dto/create-user.dto';
 import { Roles } from '../roles.decorator';
 
 
-@Controller('user')
+@Controller('users')
 export class UsersController {
   constructor(
     private readonly usersService: UsersService,
@@ -14,7 +14,7 @@ export class UsersController {
   // TODO: apply ExceptionFiter
   @Post()
   @Roles('admin')
-  async createUser(@Payload() payload: CreateUserDto) {
+  async createUser(@Body() payload: CreateUserDto) {
     return await this.usersService.createUser(payload);
   }
 }

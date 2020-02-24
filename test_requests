@@ -1,3 +1,6 @@
+<< User >>
+curl -v http://127.0.0.1:3000/users -X POST -H "Content-Type: application/json" -d '{ "name": "park", "role": "admin" }'
+
 << Sign >>
 curl -v http://127.0.0.1:3000/signs/user_id/1 -X POST -H "Content-Type: application/json" -d '{ "url": "test1.png" }'
 curl -v http://127.0.0.1:3000/signs/user_id/1

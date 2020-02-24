@@ -17,8 +17,8 @@ export class UsersService {
 
     async createUser(payload: CreateUserDto) {
         const user: User = new User();
-        user.name = 'test user';
-        user.role = UserRole.USER;
-        return await this.userRepository.save(user);
+        user.name = payload.name;
+        user.role = payload.role;
+        return await User.save(user);
     }
 }
