@@ -9,6 +9,7 @@ import { Roles, MemberRoles } from '../roles.decorator';
 export class TeamsController {
     constructor(private readonly teamsService: TeamsService) { }
 
+    // TODO: apply ExceptionFiter
     @Post()
     @Roles('admin')
     @HttpCode(201)

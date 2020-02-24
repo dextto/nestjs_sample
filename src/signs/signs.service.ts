@@ -24,11 +24,12 @@ export class SignsService {
         sign.url = url;
 
         const errors = await validate(sign);
+        console.log(errors);
         if (errors.length > 0) {
-            const _errors = { username: 'Userinput is not valid.' };
-            throw new HttpException({ message: 'Input data validation failed', _errors }, HttpStatus.BAD_REQUEST);
+            const errors = { username: 'Userinput is not valid.' };
+            throw new HttpException({ message: 'Input data validation failed', errors }, HttpStatus.BAD_REQUEST);
         } else {
-            return await this.signRepository.save(sign);
+            return await Sign.save(sign);
         }
     }
 

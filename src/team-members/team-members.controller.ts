@@ -9,10 +9,11 @@ import { CreateTeamMemberDto } from './dto/team-member.dto';
 export class TeamMembersController {
     constructor(private readonly teamMembersService: TeamMembersService) { }
 
+    // TODO: apply ExceptionFiter
     @Post()
     @Roles('admin')
     @HttpCode(201)
     async create(@Body() createTeamMemberDto: CreateTeamMemberDto) {
-        this.teamMembersService.create(createTeamMemberDto);
+        return this.teamMembersService.create(createTeamMemberDto);
     }
 }
