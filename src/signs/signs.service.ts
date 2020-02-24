@@ -34,6 +34,6 @@ export class SignsService {
 
     async delete(signId: number) {
         const sign = await Sign.findOne(signId);
-        Sign.delete(sign);
+        return Sign.delete(sign);
     }
 }

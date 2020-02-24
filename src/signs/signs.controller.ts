@@ -24,6 +24,6 @@ export class SignsController {
     async delete(
         @Param('signId') signId: number,
     ) {
-        this.signsService.delete(signId);
+        return this.signsService.delete(signId);
     }
 }
