@@ -35,6 +35,12 @@ export class SignsService {
 
     async delete(signId: number) {
         const sign = await Sign.findOne(signId);
-        return Sign.delete(sign);
+
+        if (!sign) {
+            const errors = { username: 'Userinput is not valid.' };
+            throw new HttpException({ message: 'Input data validation failed', errors }, HttpStatus.BAD_REQUEST);
+        } else {
+            return Sign.delete(sign);
+        }
     }
 }
