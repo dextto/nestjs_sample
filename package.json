@@ -30,7 +30,7 @@
     "@nestjs/swagger": "^4.3.0",
     "@nestjs/typeorm": "^6.3.3",
     "@ridi/object-case-converter": "^2.0.4",
-    "class-transformer": "^0.2.3",
+    "class-transformer": "^0.3.1",
     "class-validator": "^0.11.0",
     "fastify-swagger": "^2.5.0",
     "jest-cli": "^25.1.0",
