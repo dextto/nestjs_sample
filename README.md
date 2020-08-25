@@ -2,8 +2,11 @@ This is a sample for nestjs.
 
 ## Features
 
-- Login (JWT)
--
+- Login & Authentication(JWT)
+- CQRS, DDD
+- Sending Email
+- Sequelize ORM
+- Configuration
 
 ## Installation
 
