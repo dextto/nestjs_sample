@@ -4,12 +4,12 @@
   "port": 3306,
   "username": "root",
   "password": "root",
-  "database": "Example",
+  "database": "test",
+  "entities": ["dist/**/*.entity{.ts,.js}"],
   "synchronize": false,
   "logging": false,
-  "entities": ["dist/**/*.entity{.ts,.js}"],
-  "migrationsRun": true,
   "migrations": ["dist/migration/**/*{.ts,.js}"],
+  "migrationsRun": true,
   "cli": {
     "migrationsDir": "src/migration"
   }

@@ -1,22 +1,33 @@
 import { NestFactory } from '@nestjs/core';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { AppModule } from 'src/app.module';
+
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // swagger setting
+  app.useGlobalPipes(
+    new ValidationPipe({
+      disableErrorMessages: false,
+      whitelist: false,
+      transform: true,
+      validationError: {
+        target: false,
+        value: false,
+      },
+    }),
+  );
+
   const options = new DocumentBuilder()
-    .setTitle('Modusign API')
-    .setDescription('The Modusign API description')
-    .setVersion('0.1')
-    // .addTag('modusign')
+    .setTitle('Housing')
+    .setDescription('Housing application description')
+    .setVersion('0.0.1')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
 
-  app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
