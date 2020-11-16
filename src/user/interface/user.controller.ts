@@ -5,9 +5,9 @@ import { ApiTags } from '@nestjs/swagger';
 import { CreateUserDto } from './dto/create-user.dto';
 import { CreateUserCommand, CreateUserCommandResult } from '../application/command/create-user.command';
 import { EmailVerificationCommand } from '../application/command/email-verification.command';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
-import { LocalAuthGuard } from 'src/auth/guards/local-auth.guard';
-import { AuthorizationCommand as AuthorizationCommand, AuthorizationCommandResult } from '../../auth/command/authorization.command';
+import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard';
+import { LocalAuthGuard } from '@auth/guards/local-auth.guard';
+import { AuthorizationCommand as AuthorizationCommand } from '../../auth/command/authorization.command';
 
 @ApiTags('users')
 @Controller('users')

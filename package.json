@@ -30,7 +30,7 @@
     "@nestjs/passport": "^7.1.0",
     "@nestjs/platform-express": "^7.4.2",
     "@nestjs/sequelize": "^0.1.0",
-    "@nestjs/swagger": "^4.5.12",
+    "@nestjs/swagger": "^4.7.3",
     "@types/nodemailer": "^6.4.0",
     "@types/uuid": "^8.3.0",
     "class-transformer": "^0.3.1",
@@ -87,6 +87,10 @@
       "^.+\\.(t|j)s$": "ts-jest"
     },
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@auth/(.*)": "<rootDir>/auth/$1",
+      "@auth": "<rootDir>/auth"
+    }
   }
 }
