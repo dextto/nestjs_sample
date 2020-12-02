@@ -4,8 +4,8 @@ This is a sample for nestjs.
 
 - Login & Authentication(JWT)
 - CQRS, DDD
-- Sending Email
-- Sequelize ORM
+- Sending Email (nodemailer)
+- TypeORM
 - Configuration
 
 ## Installation

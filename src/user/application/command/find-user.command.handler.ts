@@ -1,29 +1,29 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { InjectModel } from '@nestjs/sequelize';
 
-import { User } from 'src/user/domain/user.model';
-import { FindUserCommand, FindUserCommandResult } from './find-user.command';
+import { UserRepositoryWrapper } from 'src/user/infra/persistence/repository/user.repository';
+import { User } from 'src/user/infra/persistence/entity/user.model';
+import { FindUserByEmailCommand, FindUserByEmailCommandResult } from './find-user.command';
 
 @Injectable()
-@CommandHandler(FindUserCommand)
-export class FindUserCommandHandler implements ICommandHandler<FindUserCommand> {
-  constructor(
-    @InjectModel(User) private readonly userModel: typeof User,
-  ) { }
+@CommandHandler(FindUserByEmailCommand)
+export class FindUserCommandHandler implements ICommandHandler<FindUserByEmailCommand> {
+  constructor(private userRepository: UserRepositoryWrapper) { }
 
-  public async execute(command: FindUserCommand): Promise<FindUserCommandResult> {
-    const { emailAddress, password } = command;
+  public async execute(command: FindUserByEmailCommand): Promise<FindUserByEmailCommandResult> {
+    const { emailAddress } = command;
 
-    const user: User = await this.userModel.findOne({ where: { emailAddress, password } });
+    const user: User | null = await this.userRepository.findByEmail(emailAddress);
     if (!user) {
       throw new NotFoundException('not found user');
     }
 
     return {
-      name: user.name,
       userId: user.id,
-      emailAddress: user.emailAddress
+      name: user.name,
+      emailAddress: user.emailAddress,
+      password: user.password,
+      passwordSalt: user.passwordSalt
     };
   }
 }

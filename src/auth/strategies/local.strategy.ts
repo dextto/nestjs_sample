@@ -1,8 +1,11 @@
-import { Injectable } from '@nestjs/common';
-import { PassportStrategy } from '@nestjs/passport';
+import * as crypto from 'crypto';
 import { Strategy } from 'passport-local';
-import { FindUserCommand } from 'src/user/application/command/find-user.command';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { PassportStrategy } from '@nestjs/passport';
 import { CommandBus } from '@nestjs/cqrs';
+
+import { EncodingType, EncryptionType } from 'src/constants/types';
+import { FindUserByEmailCommand, FindUserByEmailCommandResult } from 'src/user/application/command/find-user.command';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
@@ -11,7 +14,25 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
   }
 
   async validate(emailAddress: string, password: string): Promise<any> {
-    const command = new FindUserCommand(emailAddress, password);
-    return await this.commandBus.execute(command);
+    const command = new FindUserByEmailCommand(emailAddress);
+    const result: FindUserByEmailCommandResult = await this.commandBus.execute(command);
+    const hashedPassword = crypto
+      .pbkdf2Sync(
+        password,
+        Buffer.from(result.passwordSalt, EncodingType.BASE_64),
+        10000,
+        64,
+        EncryptionType.SHA_512,
+      )
+      .toString(EncodingType.BASE_64);
+
+    if (result.password !== hashedPassword) {
+      throw new UnauthorizedException('wrong password');
+    }
+
+    return {
+      userId: result.userId,
+      emailAddress: result.emailAddress
+    };
   }
 }

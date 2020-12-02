@@ -5,3 +5,7 @@ export class EmailVerificationCommand implements ICommand {
     public readonly authToken: string,
   ) { }
 }
+
+export interface EmailVerificationCommandResult {
+  userId: number;
+}

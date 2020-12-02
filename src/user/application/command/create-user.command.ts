@@ -9,5 +9,5 @@ export class CreateUserCommand implements ICommand {
 }
 
 export interface CreateUserCommandResult {
-  userId: string;
+  userId: number;
 }

@@ -1,14 +1,13 @@
 import { ICommand } from "@nestjs/cqrs";
 
-export class FindUserCommand implements ICommand {
-  constructor(
-    public readonly emailAddress: string,
-    public readonly password: string,
-  ) { }
+export class FindUserByEmailCommand implements ICommand {
+  constructor(public readonly emailAddress: string) { }
 }
 
-export interface FindUserCommandResult {
+export interface FindUserByEmailCommandResult {
+  userId: number;
   name: string;
-  userId: string;
   emailAddress: string;
+  password: string;
+  passwordSalt: string;
 }

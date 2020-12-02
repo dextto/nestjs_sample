@@ -1,21 +1,23 @@
-import { Injectable, UnprocessableEntityException, NotFoundException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/sequelize';
+import { UnprocessableEntityException, NotFoundException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
-import { EmailVerificationCommand } from './email-verification.command';
-import { User } from 'src/user/domain/user.model';
+import { EmailVerificationCommand, EmailVerificationCommandResult } from './email-verification.command';
+import { UserRepositoryWrapper } from 'src/user/infra/persistence/repository/user.repository';
 
-@Injectable()
+// TODO: transaction
 @CommandHandler(EmailVerificationCommand)
 export class EmailVerificationCommandHandler implements ICommandHandler<EmailVerificationCommand> {
   constructor(
-    @InjectModel(User) private readonly userModel: typeof User,
+    private userRepository: UserRepositoryWrapper,
   ) { }
 
-  public async execute(command: EmailVerificationCommand): Promise<number> {
+  public async execute(command: EmailVerificationCommand): Promise<EmailVerificationCommandResult> {
     const { authToken } = command;
 
-    const user = await this.findUser(authToken);
+    const user = await this.userRepository.findByEmailAuthToken(authToken);
+    if (user === null) {
+      throw new NotFoundException('User not found.');
+    }
 
     const expiryTime = user.emailAuthTokenExpiryTime;
     if (expiryTime === null) {
@@ -25,17 +27,10 @@ export class EmailVerificationCommandHandler implements ICommandHandler<EmailVer
       throw new UnprocessableEntityException('email auth token is expired');
     }
 
-    user.emailAuthTokenExpiryTime = null;
-    await user.save();
+    await this.userRepository.updateEmailAuthTokenExpiryTime(user.id, null);
 
-    return user.id;
-  }
-
-  private async findUser(emailAuthToken: string) {
-    const user = await this.userModel.findOne({ where: { emailAuthToken } })
-    if (!user) {
-      throw new NotFoundException('user not found');
+    return {
+      userId: user.id
     }
-    return user;
   }
 }

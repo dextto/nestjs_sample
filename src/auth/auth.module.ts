@@ -15,7 +15,7 @@ import { AuthorizationCommandHandler } from './command/authorization.command.han
     PassportModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' }, // TODO
+      signOptions: { expiresIn: '24h' },
     }),
   ],
   providers: [LocalStrategy, JwtStrategy, AuthorizationCommandHandler],

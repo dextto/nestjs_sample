@@ -1,21 +1,23 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm/dist/typeorm.module';
+
 import { EnvModule } from './env.module';
 import databaseConfig from './config/databaseConfig';
-import { SequelizeModule } from '@nestjs/sequelize';
 
 const config = databaseConfig();
 
 @Module({
   imports: [
     EnvModule,
-    SequelizeModule.forRoot({
-      dialect: 'mysql',
+    TypeOrmModule.forRoot({
+      type: 'mysql',
       host: config.database.host,
       port: config.database.port,
       username: config.database.username,
       password: config.database.password,
       database: config.database.dbName,
-      autoLoadModels: true,
+      autoLoadEntities: true,
+      bigNumberStrings: false,
       synchronize: true, // TODO:
     }),
   ],

@@ -20,6 +20,8 @@ export class EmailSender {
     @Inject(emailConfig.KEY)
     private config: ConfigType<typeof emailConfig>,
   ) {
+    console.log(config)
+
     this.transporter = nodemailer.createTransport({
       service: config.service,
       auth: {
@@ -42,6 +44,6 @@ export class EmailSender {
       html: `<a href="${url}">링크를 누르시면 가입 인증이 완료됩니다.</a>`
     }
 
-    return this.send(mailOptions)
+    return await this.send(mailOptions)
   }
 }

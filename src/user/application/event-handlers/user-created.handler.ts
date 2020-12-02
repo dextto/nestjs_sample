@@ -6,10 +6,10 @@ import { EmailSender } from "src/email/EmailSender";
 export class UserCreatedHandler implements IEventHandler<UserCreated> {
   constructor(private readonly emailSender: EmailSender) { }
 
-  handle(event: UserCreated) {
+  async handle(event: UserCreated) {
     console.log('UserCreatedHandler!!!')
     const { emailAddress, authToken } = event;
 
-    this.emailSender.sendVerification(emailAddress, authToken);
+    await this.emailSender.sendVerification(emailAddress, authToken);
   }
 }
