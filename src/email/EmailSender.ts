@@ -20,8 +20,6 @@ export class EmailSender {
     @Inject(emailConfig.KEY)
     private config: ConfigType<typeof emailConfig>,
   ) {
-    console.log(config)
-
     this.transporter = nodemailer.createTransport({
       service: config.service,
       auth: {
