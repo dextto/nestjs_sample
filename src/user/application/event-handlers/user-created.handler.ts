@@ -1,13 +1,12 @@
 import { EventsHandler, IEventHandler } from "@nestjs/cqrs";
-import { UserCreated } from "src/user/domain/event/UserCreated";
+import { UserCreated } from "@user/domain/event/UserCreated";
 import { EmailSender } from "src/email/EmailSender";
 
 @EventsHandler(UserCreated)
-export class UserCreatedHandler implements IEventHandler<UserCreated> {
+export class UserCreatedEventHandler implements IEventHandler<UserCreated> {
   constructor(private readonly emailSender: EmailSender) { }
 
   async handle(event: UserCreated) {
-    console.log('UserCreatedHandler!!!')
     const { emailAddress, authToken } = event;
 
     await this.emailSender.sendVerification(emailAddress, authToken);

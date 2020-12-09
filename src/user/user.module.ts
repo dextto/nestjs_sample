@@ -9,7 +9,7 @@ import { User } from './infra/persistence/entity/user.model';
 import { UserRepositoryWrapper } from './infra/persistence/repository/user.repository';
 
 import { CreateUserCommandHandler } from './application/command/create-user.command.handler';
-import { UserCreatedHandler } from './application/event-handlers/user-created.handler';
+import { UserCreatedEventHandler } from './application/event-handlers/user-created.handler';
 import { EmailVerificationCommandHandler } from './application/command/email-verification.command.handler';
 import { FindUserCommandHandler } from './application/command/find-user.command.handler';
 
@@ -18,16 +18,16 @@ import { UserController } from './interface/user.controller';
 // infrastructure
 const repositories = [UserRepositoryWrapper]
 
+// interface
+const controllers = [UserController];
+
 // application
 const commandHandlers = [
   CreateUserCommandHandler,
   EmailVerificationCommandHandler,
   FindUserCommandHandler
 ];
-const eventHandlers = [UserCreatedHandler];
-
-// interface
-const controllers = [UserController];
+const eventHandlers = [UserCreatedEventHandler];
 
 @Module({
   imports: [

@@ -4,7 +4,7 @@ import * as moment from 'moment';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
 
-import { EncodingType, EncryptionType } from 'src/constants/types';
+import { EncodingType, EncryptionType } from '@constants/types';
 import { UserCreated } from '@user/domain/event/UserCreated';
 import { AuthToken } from '@user/domain/AuthToken';
 import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';

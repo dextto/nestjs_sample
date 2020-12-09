@@ -13,8 +13,6 @@
     "paths": {
       "@auth": ["src/auth"],
       "@auth/*": ["src/auth/*"],
-      "@calendar": ["src/calendar"],
-      "@calendar/*": ["src/calendar/*"],
       "@constants": ["src/constants"],
       "@constants/*": ["src/constants/*"],
       "@common": ["src/common"],
