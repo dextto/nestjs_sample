@@ -90,7 +90,19 @@
     "testEnvironment": "node",
     "moduleNameMapper": {
       "@auth/(.*)": "<rootDir>/auth/$1",
-      "@auth": "<rootDir>/auth"
+      "@auth": "<rootDir>/auth",
+      "@calendar/(.*)": "<rootDir>/calendar/$1",
+      "@calendar": "<rootDir>/calendar",
+      "@constants/(.*)": "<rootDir>/constants/$1",
+      "@constants": "<rootDir>/constants",
+      "@common/(.*)": "<rootDir>/common/$1",
+      "@common": "<rootDir>/common",
+      "@email/(.*)": "<rootDir>/email/$1",
+      "@email": "<rootDir>/email",
+      "@user/(.*)": "<rootDir>/user/$1",
+      "@user": "<rootDir>/user",
+      "@util/(.*)": "<rootDir>/util/$1",
+      "@util": "<rootDir>/util"
     }
   }
 }

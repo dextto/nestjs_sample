@@ -2,7 +2,7 @@ import { UnprocessableEntityException, NotFoundException } from '@nestjs/common'
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 import { EmailVerificationCommand, EmailVerificationCommandResult } from './email-verification.command';
-import { UserRepositoryWrapper } from 'src/user/infra/persistence/repository/user.repository';
+import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
 
 // TODO: transaction
 @CommandHandler(EmailVerificationCommand)

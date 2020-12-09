@@ -2,7 +2,7 @@ import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
-import { User } from 'src/user/infra/persistence/entity/user.model';
+import { User } from '@user/infra/persistence/entity/user.model';
 
 @Injectable()
 export class UserRepositoryWrapper {

@@ -8,7 +8,7 @@ import { EmailVerificationCommand, EmailVerificationCommandResult } from '../app
 import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard';
 import { LocalAuthGuard } from '@auth/guards/local-auth.guard';
 import { AuthorizationCommand as AuthorizationCommand } from '../../auth/command/authorization.command';
-import { GetUserInfoQuery, GetUserInfoQueryResult } from 'src/user/application/query/get-user-info.query';
+import { GetUserInfoQuery, GetUserInfoQueryResult } from '@user/application/query/get-user-info.query';
 
 
 @ApiTags('users')
@@ -27,9 +27,9 @@ export class UserController {
 
   @UseGuards(LocalAuthGuard)
   @Post('/auth/login')
-  async login(@Request() req) {
-    const { userId, emailAddress } = req.user;
-    const command = new AuthorizationCommand(userId, emailAddress);
+  async login(@Request() req: any) {
+    const { emailAddress, password } = req.user;
+    const command = new AuthorizationCommand(emailAddress, password);
     return await this.commandBus.execute(command);
   }
 

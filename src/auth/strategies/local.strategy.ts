@@ -5,7 +5,7 @@ import { PassportStrategy } from '@nestjs/passport';
 import { CommandBus } from '@nestjs/cqrs';
 
 import { EncodingType, EncryptionType } from 'src/constants/types';
-import { FindUserByEmailCommand, FindUserByEmailCommandResult } from 'src/user/application/command/find-user.command';
+import { FindUserByEmailCommand, FindUserByEmailCommandResult } from '@user/application/command/find-user.command';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
