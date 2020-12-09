@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import * as dayjs from 'dayjs';
 import { clear, advanceTo } from 'jest-date-mock';
 import { NotFoundException, UnprocessableEntityException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
@@ -72,7 +72,7 @@ describe('EmailVerificationCommand', () => {
     it('should throw UnprocessableEntityException when auth token is expired', async () => {
       repository.findByEmailAuthToken = jest.fn().mockReturnValueOnce({
         id: userId,
-        emailAuthTokenExpiryTime: moment().subtract(1, 'day'),
+        emailAuthTokenExpiryTime: dayjs().subtract(1, 'day'),
       });
 
       await expect(commandHandler.execute(command)).rejects.toThrowError(UnprocessableEntityException);

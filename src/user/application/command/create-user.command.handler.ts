@@ -1,6 +1,6 @@
 import * as uuid from 'uuid';
 import * as crypto from 'crypto';
-import * as moment from 'moment';
+import * as dayjs from 'dayjs';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
 
@@ -34,8 +34,8 @@ export class CreateUserCommandHandler implements ICommandHandler<CreateUserComma
       )
       .toString(EncodingType.BASE_64);
 
-    const expiryTime = moment()
-      .add(30, 'days')
+    const expiryTime = dayjs()
+      .add(30, 'day')
       .toDate();
     const authToken = new AuthToken(uuid.v1(), expiryTime);
 
