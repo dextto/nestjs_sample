@@ -65,7 +65,8 @@
     "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
-    "jest": "^25.1.0",
+    "jest": "^26.6.3",
+    "jest-date-mock": "^1.0.8",
     "prettier": "^2.0.5",
     "supertest": "^4.0.2",
     "ts-jest": "^26.2.0",
@@ -89,7 +90,17 @@
     "testEnvironment": "node",
     "moduleNameMapper": {
       "@auth/(.*)": "<rootDir>/auth/$1",
-      "@auth": "<rootDir>/auth"
+      "@auth": "<rootDir>/auth",
+      "@constants/(.*)": "<rootDir>/constants/$1",
+      "@constants": "<rootDir>/constants",
+      "@common/(.*)": "<rootDir>/common/$1",
+      "@common": "<rootDir>/common",
+      "@email/(.*)": "<rootDir>/email/$1",
+      "@email": "<rootDir>/email",
+      "@user/(.*)": "<rootDir>/user/$1",
+      "@user": "<rootDir>/user",
+      "@util/(.*)": "<rootDir>/util/$1",
+      "@util": "<rootDir>/util"
     }
   }
 }

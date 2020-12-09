@@ -4,7 +4,7 @@ import { PassportModule } from '@nestjs/passport';
 import { jwtConstants } from './constants';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
-import { UserModule } from 'src/user/user.module';
+import { UserModule } from '@user/user.module';
 import { CqrsModule } from '@nestjs/cqrs';
 import { AuthorizationCommandHandler } from './command/authorization.command.handler';
 

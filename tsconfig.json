@@ -13,6 +13,16 @@
     "paths": {
       "@auth": ["src/auth"],
       "@auth/*": ["src/auth/*"],
+      "@constants": ["src/constants"],
+      "@constants/*": ["src/constants/*"],
+      "@common": ["src/common"],
+      "@common/*": ["src/common/*"],
+      "@email": ["src/email"],
+      "@email/*": ["src/email/*"],
+      "@user": ["src/user"],
+      "@user/*": ["src/user/*"],
+      "@util": ["src/util"],
+      "@util/*": ["src/util/*"],
     }
   },
   "exclude": ["node_modules", "dist"]

@@ -10,8 +10,8 @@ export class AuthorizationCommandHandler implements ICommandHandler<Authorizatio
   constructor(private readonly jwtService: JwtService) { }
 
   public async execute(command: AuthorizationCommand): Promise<AuthorizationCommandResult> {
-    const { userId, emailAddress } = command;
-    const payload = { emailAddress, userId };
+    const { emailAddress, password } = command;
+    const payload = { emailAddress, password };
     return {
       accessToken: this.jwtService.sign(payload),
     };

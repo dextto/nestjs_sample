@@ -1,8 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
-import { UserRepositoryWrapper } from 'src/user/infra/persistence/repository/user.repository';
-import { User } from 'src/user/infra/persistence/entity/user.model';
+import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
+import { User } from '@user/infra/persistence/entity/user.model';
 import { FindUserByEmailCommand, FindUserByEmailCommandResult } from './find-user.command';
 
 @Injectable()

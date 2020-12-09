@@ -4,10 +4,10 @@ import * as moment from 'moment';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
 
-import { EncodingType, EncryptionType } from 'src/constants/types';
-import { UserCreated } from 'src/user/domain/event/UserCreated';
-import { AuthToken } from 'src/user/domain/AuthToken';
-import { UserRepositoryWrapper } from 'src/user/infra/persistence/repository/user.repository';
+import { EncodingType, EncryptionType } from '@constants/types';
+import { UserCreated } from '@user/domain/event/UserCreated';
+import { AuthToken } from '@user/domain/AuthToken';
+import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
 import { CreateUserCommand, CreateUserCommandResult } from './create-user.command';
 
 @Injectable()

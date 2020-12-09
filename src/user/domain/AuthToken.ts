@@ -1,8 +1,8 @@
 import * as crypto from 'crypto';
 import * as moment from 'moment';
 import { IsString, IsNotEmpty, IsDate } from 'class-validator';
-import { ValueObject } from 'src/util/ddd/ValueObject';
-import { ClassValidatorWrapper } from 'src/util/validator/ClassValidatorWrapper';
+import { ValueObject } from '@util/ddd/ValueObject';
+import { ClassValidatorWrapper } from '@util/validator/ClassValidatorWrapper';
 
 export class AuthToken extends ValueObject<AuthToken> {
   @IsString()

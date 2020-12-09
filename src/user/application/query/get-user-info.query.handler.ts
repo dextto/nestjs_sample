@@ -1,4 +1,4 @@
-import { UserRepositoryWrapper } from "src/user/infra/persistence/repository/user.repository";
+import { UserRepositoryWrapper } from "@user/infra/persistence/repository/user.repository";
 import { QueryHandler } from "@nestjs/cqrs";
 import { GetUserInfoQuery, GetUserInfoQueryResult } from "./get-user-info.query";
 import { NotFoundException } from "@nestjs/common";
