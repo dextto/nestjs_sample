@@ -18,7 +18,8 @@ const config = databaseConfig();
       database: config.database.dbName,
       autoLoadEntities: true,
       bigNumberStrings: false,
-      synchronize: true, // TODO:
+      synchronize: config.database.synchronize,
+      logging: false,
     }),
   ],
   providers: [],
