@@ -7,6 +7,7 @@ This is a sample for nestjs.
 - Sending Email (nodemailer)
 - TypeORM
 - Configuration
+- Task Scheduling
 
 ## Installation
 
