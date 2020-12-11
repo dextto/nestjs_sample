@@ -23,7 +23,7 @@ export class CreateUserCommandHandler implements ICommandHandler<CreateUserComma
 
     await this.checkUserExists(emailAddress);
 
-    const salt = 'test'; // crypto.randomBytes(16).toString(EncodingType.BASE_64); // TODO
+    const salt = crypto.randomBytes(16).toString(EncodingType.BASE_64);
     const hashedPassword = crypto
       .pbkdf2Sync(
         password,

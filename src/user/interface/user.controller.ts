@@ -2,11 +2,13 @@ import { Controller, Get, Post, Body, Query, Request, UseGuards } from '@nestjs/
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { ApiTags } from '@nestjs/swagger';
 
-import { CreateUserDto } from './dto/create-user.dto';
-import { CreateUserCommand, CreateUserCommandResult } from '../application/command/create-user.command';
-import { EmailVerificationCommand, EmailVerificationCommandResult } from '../application/command/email-verification.command';
 import { JwtAuthGuard } from '@auth/guards/jwt-auth.guard';
 import { LocalAuthGuard } from '@auth/guards/local-auth.guard';
+
+import { CreateUserDto } from './dto/create-user.dto';
+
+import { CreateUserCommand, CreateUserCommandResult } from '../application/command/create-user.command';
+import { EmailVerificationCommand, EmailVerificationCommandResult } from '../application/command/email-verification.command';
 import { AuthorizationCommand as AuthorizationCommand } from '../../auth/command/authorization.command';
 import { GetUserInfoQuery, GetUserInfoQueryResult } from '@user/application/query/get-user-info.query';
 

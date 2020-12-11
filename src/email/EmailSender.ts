@@ -30,7 +30,7 @@ export class EmailSender {
   }
 
   public async send(mailOptions: EmailOptions) {
-    await this.transporter.sendMail(mailOptions); // TODO
+    await this.transporter.sendMail(mailOptions);
   }
 
   public async sendVerification(emailAddress: string, authToken: string) {
@@ -39,7 +39,12 @@ export class EmailSender {
     const mailOptions: EmailOptions = {
       to: emailAddress,
       subject: '가입 인증 메일',
-      html: `<a href="${url}">링크를 누르시면 가입 인증이 완료됩니다.</a>`
+      html: `
+        가입확인 버튼를 누르시면 가입 인증이 완료됩니다.<br/>
+        <form action="${url}" method="POST">
+          <button>가입확인</button>
+        </form>
+      `
     }
 
     return await this.send(mailOptions)
