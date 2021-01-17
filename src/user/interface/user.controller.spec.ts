@@ -2,10 +2,13 @@ import { AuthorizationCommand, AuthorizationCommandResult } from '@auth/command/
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { Test, TestingModule } from '@nestjs/testing';
 
+import { ResponseMessage } from '@user/constants/message';
+
 import { UserController } from './user.controller';
 
 import { CreateUserCommand, CreateUserCommandResult } from '../application/command/create-user.command';
 import { EmailVerificationCommand } from '../application/command/email-verification.command';
+import { VerifyGoogleTokenCommand, VerifyGoogleTokenCommandResult } from '@user/application/command/verify-google-token.command';
 import { GetUserInfoQuery, GetUserInfoQueryResult } from '../application/query/get-user-info.query';
 
 describe('UserController', () => {
@@ -18,6 +21,7 @@ describe('UserController', () => {
   const password = 'password';
   const userId = 1;
   const authToken = 'auth-token';
+  const accessToken = 'accessToken';
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -69,7 +73,21 @@ describe('UserController', () => {
       });
 
       expect(commandBus.execute).toBeCalledWith(new AuthorizationCommand(email, password));
-      // expect(result).toEqual(commandResult);
+      expect(result).toEqual(commandResult);
+    });
+  });
+
+  describe('googleLogin', () => {
+    it('should call command bus', async () => {
+      const commandResult: VerifyGoogleTokenCommandResult = {
+        result: ResponseMessage.VERIFIED
+      };
+      commandBus.execute = jest.fn().mockReturnValueOnce(commandResult);
+
+      const result = await controller.googleLogin({ accessToken });
+
+      expect(commandBus.execute).toBeCalledWith(new VerifyGoogleTokenCommand(accessToken));
+      expect(result).toEqual(commandResult);
     });
   });
 
