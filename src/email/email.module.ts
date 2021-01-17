@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { EmailSender } from 'src/email/EmailSender';
+import { EmailSender } from '@email/EmailSender';
 
 const controllers = [];
 

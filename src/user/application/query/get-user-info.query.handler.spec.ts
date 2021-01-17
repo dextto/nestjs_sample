@@ -1,8 +1,10 @@
 import { NotFoundException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+
 import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
-import { GetUserInfoQuery, GetUserInfoQueryResult } from './get-user-info.query';
-import { UserQueryHandler } from './get-user-info.query.handler';
+
+import { GetUserInfoQuery, GetUserInfoQueryResult } from '@user/application/query/get-user-info.query';
+import { UserQueryHandler } from '@user/application/query/get-user-info.query.handler';
 
 describe('UserQueryHandler', () => {
   let queryHandler: UserQueryHandler;

@@ -100,6 +100,8 @@
       "@constants": "<rootDir>/constants",
       "@common/(.*)": "<rootDir>/common/$1",
       "@common": "<rootDir>/common",
+      "@config/(.*)": "<rootDir>/config/$1",
+      "@config": "<rootDir>/config",
       "@email/(.*)": "<rootDir>/email/$1",
       "@email": "<rootDir>/email",
       "@user/(.*)": "<rootDir>/user/$1",

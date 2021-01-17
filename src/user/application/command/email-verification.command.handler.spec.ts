@@ -1,10 +1,13 @@
 import * as dayjs from 'dayjs';
 import { clear, advanceTo } from 'jest-date-mock';
+
 import { NotFoundException, UnprocessableEntityException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+
 import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
-import { EmailVerificationCommand, EmailVerificationCommandResult } from './email-verification.command';
-import { EmailVerificationCommandHandler } from './email-verification.command.handler';
+
+import { EmailVerificationCommand, EmailVerificationCommandResult } from '@user/application/command/email-verification.command';
+import { EmailVerificationCommandHandler } from '@user/application/command/email-verification.command.handler';
 
 
 describe('EmailVerificationCommand', () => {

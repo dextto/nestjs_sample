@@ -1,8 +1,10 @@
 import { NotFoundException } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
+
 import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
-import { FindUserByEmailCommand, FindUserByEmailCommandResult } from './find-user.command';
-import { FindUserCommandHandler } from './find-user.command.handler';
+
+import { FindUserByEmailCommand, FindUserByEmailCommandResult } from '@user/application/command/find-user.command';
+import { FindUserCommandHandler } from '@user/application/command/find-user.command.handler';
 
 describe('FindUserByEmailCommand', () => {
   let commandHandler: FindUserCommandHandler;

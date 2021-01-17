@@ -17,6 +17,8 @@
       "@constants/*": ["src/constants/*"],
       "@common": ["src/common"],
       "@common/*": ["src/common/*"],
+      "@config": ["src/config"],
+      "@config/*": ["src/config/*"],
       "@email": ["src/email"],
       "@email/*": ["src/email/*"],
       "@user": ["src/user"],

@@ -1,7 +1,9 @@
-import { UserRepositoryWrapper } from "@user/infra/persistence/repository/user.repository";
-import { QueryHandler } from "@nestjs/cqrs";
-import { GetUserInfoQuery, GetUserInfoQueryResult } from "./get-user-info.query";
 import { NotFoundException } from "@nestjs/common";
+import { QueryHandler } from "@nestjs/cqrs";
+
+import { UserRepositoryWrapper } from "@user/infra/persistence/repository/user.repository";
+
+import { GetUserInfoQuery, GetUserInfoQueryResult } from "@user/application/query/get-user-info.query";
 
 @QueryHandler(GetUserInfoQuery)
 export class UserQueryHandler {

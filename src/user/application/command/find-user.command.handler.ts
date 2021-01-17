@@ -3,7 +3,8 @@ import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 
 import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
 import { User } from '@user/infra/persistence/entity/user.model';
-import { FindUserByEmailCommand, FindUserByEmailCommandResult } from './find-user.command';
+
+import { FindUserByEmailCommand, FindUserByEmailCommandResult } from '@user/application/command/find-user.command';
 
 @Injectable()
 @CommandHandler(FindUserByEmailCommand)

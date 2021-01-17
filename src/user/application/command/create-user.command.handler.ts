@@ -5,10 +5,13 @@ import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
 
 import { EncodingType, EncryptionType } from '@constants/types';
+
+import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
+
+import { CreateUserCommand, CreateUserCommandResult } from '@user/application/command/create-user.command';
+
 import { UserCreated } from '@user/domain/event/UserCreated';
 import { AuthToken } from '@user/domain/AuthToken';
-import { UserRepositoryWrapper } from '@user/infra/persistence/repository/user.repository';
-import { CreateUserCommand, CreateUserCommandResult } from './create-user.command';
 
 @Injectable()
 @CommandHandler(CreateUserCommand)

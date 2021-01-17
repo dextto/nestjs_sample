@@ -4,12 +4,12 @@ import { Test, TestingModule } from '@nestjs/testing';
 
 import { ResponseMessage } from '@user/constants/message';
 
-import { UserController } from './user.controller';
+import { UserController } from '@user/interface/user.controller';
 
-import { CreateUserCommand, CreateUserCommandResult } from '../application/command/create-user.command';
-import { EmailVerificationCommand } from '../application/command/email-verification.command';
+import { CreateUserCommand, CreateUserCommandResult } from '@user/application/command/create-user.command';
+import { EmailVerificationCommand } from '@user/application/command/email-verification.command';
 import { VerifyGoogleTokenCommand, VerifyGoogleTokenCommandResult } from '@user/application/command/verify-google-token.command';
-import { GetUserInfoQuery, GetUserInfoQueryResult } from '../application/query/get-user-info.query';
+import { GetUserInfoQuery, GetUserInfoQueryResult } from '@user/application/query/get-user-info.query';
 
 describe('UserController', () => {
   let controller: UserController;
