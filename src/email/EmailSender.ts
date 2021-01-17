@@ -5,15 +5,18 @@ import { Inject, Injectable } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 
 import emailConfig from '@config/emailConfig';
+import { SentEmail } from '@constants/types';
 
-export interface EmailOptions {
+import { IEmailSender } from '@user/application/adapter/IEmailSender';
+
+interface EmailOptions {
   to: string;
   subject: string;
   html: string;
 }
 
 @Injectable()
-export class EmailSender {
+export class EmailSender implements IEmailSender {
   private transporter: Mail;
 
   constructor(
@@ -29,11 +32,11 @@ export class EmailSender {
     });
   }
 
-  public async send(mailOptions: EmailOptions) {
-    await this.transporter.sendMail(mailOptions);
+  private async send(mailOptions: EmailOptions): Promise<SentEmail> {
+    return await this.transporter.sendMail(mailOptions);
   }
 
-  public async sendVerification(emailAddress: string, authToken: string) {
+  public async sendVerification(emailAddress: string, authToken: string): Promise<SentEmail> {
     const url = `${this.config.baseUrl}/users/email-verification?authToken=${authToken}`;
 
     const mailOptions: EmailOptions = {

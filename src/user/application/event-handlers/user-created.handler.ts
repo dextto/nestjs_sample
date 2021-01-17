@@ -1,12 +1,13 @@
+import { Inject } from '@nestjs/common';
 import { EventsHandler, IEventHandler } from "@nestjs/cqrs";
 
-import { EmailSender } from "@email/EmailSender";
+import { IEmailSender } from '@user/application/adapter/IEmailSender';
 
 import { UserCreated } from "@user/domain/event/UserCreated";
 
 @EventsHandler(UserCreated)
 export class UserCreatedEventHandler implements IEventHandler<UserCreated> {
-  constructor(private readonly emailSender: EmailSender) { }
+  constructor(@Inject('EmailSender') private readonly emailSender: IEmailSender) { }
 
   async handle(event: UserCreated) {
     const { emailAddress, authToken } = event;
