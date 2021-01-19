@@ -1,4 +1,6 @@
-This is a sample for nestjs.
+<p align=center>
+  <img src="https://docs.nestjs.com/assets/logo-small.svg" width=100 height=100 /> This is a sample for nestjs.
+</p>
 
 ## Features
 
@@ -8,6 +10,7 @@ This is a sample for nestjs.
 - TypeORM
 - Configuration
 - Task Scheduling
+- Typeorm migration
 
 ## Installation
 
