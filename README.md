@@ -24,6 +24,9 @@ EMAIL_SERVICE=
 EMAIL_AUTH_USER=
 EMAIL_AUTH_PASSWORD=
 EMAIL_BASE_URL=
+GOOGLE_CLIENT_ID=
+GOOGLE_SECRET=
+SERVICE_URL=
 ```
 
 ## Running the app
@@ -47,4 +50,16 @@ $ npm run test
 
 # test coverage
 $ npm run test:cov
+```
+
+## Migration guide
+
+```bash
+# create migration file
+$ npm run build
+$ npm run migration:create Init
+
+# generate migration file
+$ npm run build
+$ npm run migration:generate MIGRATION_NAME
 ```
