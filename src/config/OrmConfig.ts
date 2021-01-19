@@ -11,9 +11,6 @@ const config = databaseConfig();
 
 const entities = [User];
 
-console.error('__dirname', __dirname)
-console.error(join(__dirname, 'src/migrations'))
-
 const connectionOptions: ConnectionOptions = {
   type: 'mysql',
   host: config.database.host,
