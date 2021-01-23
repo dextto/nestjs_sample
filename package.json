@@ -47,6 +47,7 @@
     "dayjs": "^1.9.7",
     "dotenv": "^8.2.0",
     "mysql2": "^2.2.5",
+    "nestjs-admin": "^0.4.1",
     "nodemailer": "^6.4.11",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",

@@ -12,6 +12,9 @@ export class AuthorizationCommandHandler implements ICommandHandler<Authorizatio
   public async execute(command: AuthorizationCommand): Promise<AuthorizationCommandResult> {
     const { emailAddress, password } = command;
     const payload = { emailAddress, password };
+
+    console.log(payload)
+
     return {
       accessToken: this.jwtService.sign(payload),
     };

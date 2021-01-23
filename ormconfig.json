@@ -1,0 +1,12 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": "test",
+  "database": "test",
+  "entities": ["node_modules/nestjs-admin/**/*.entity.js"],
+  "synchronize": false,
+  "dropSchema": false,
+  "migrationsRun": true
+}

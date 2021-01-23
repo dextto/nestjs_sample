@@ -1,3 +1,5 @@
+import { DefaultAdminModule, DefaultAdminSite } from 'nestjs-admin';
+
 import { ConfigModule } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
@@ -39,6 +41,7 @@ const eventHandlers = [UserCreatedEventHandler];
     CqrsModule,
     EmailModule,
     TypeOrmModule.forFeature([User]),
+    DefaultAdminModule
   ],
   controllers,
   providers: [
@@ -49,4 +52,9 @@ const eventHandlers = [UserCreatedEventHandler];
   ],
   exports: [TypeOrmModule]
 })
-export class UserModule { }
+export class UserModule {
+  constructor(private readonly adminSite: DefaultAdminSite) {
+    // Register the User entity under the "User" section
+    adminSite.register('User', User)
+  }
+}

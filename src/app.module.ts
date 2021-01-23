@@ -1,9 +1,11 @@
+import { DefaultAdminModule } from 'nestjs-admin';
 import { Module } from '@nestjs/common';
+
 import { EnvModule } from './env.module';
 import { DatabaseModule } from './database.module';
-import { UserModule } from './user/user.module';
-import { AuthModule } from './auth/auth.module';
-import { EmailModule } from './email/email.module';
+import { UserModule } from '@user/user.module';
+import { AuthModule } from '@auth/auth.module';
+import { EmailModule } from '@email/email.module';
 import { BatchModule } from './batch/batch.module';
 
 @Module({
@@ -14,6 +16,7 @@ import { BatchModule } from './batch/batch.module';
     UserModule,
     AuthModule,
     EmailModule,
+    DefaultAdminModule,
   ],
   controllers: [],
   providers: [],
