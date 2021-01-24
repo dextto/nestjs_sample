@@ -1,6 +1,10 @@
-<p align=center>
-  <img src="https://docs.nestjs.com/assets/logo-small.svg" width=100 height=100 /> This is a sample for nestjs.
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
+
+## Description
+
+Sample for nestjs
 
 ## Features
 
