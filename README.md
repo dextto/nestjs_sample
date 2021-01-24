@@ -15,6 +15,7 @@ Sample for nestjs
 - Configuration
 - Task Scheduling
 - Typeorm migration
+- Admin-bro
 
 ## Installation
 
