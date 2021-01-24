@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from 'src/app.module';
-
+import { setupAdminPanel } from './user/infra/adapter/admin-bro/admin-panel.plugin';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -27,6 +27,9 @@ async function bootstrap() {
     .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
+
+  /** Setup Admin panel */
+  await setupAdminPanel(app);
 
   await app.listen(process.env.PORT || 3000);
 }

@@ -1,6 +1,6 @@
 import * as uuid from 'uuid';
 import * as crypto from 'crypto';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import { Injectable, UnprocessableEntityException } from '@nestjs/common';
 import { CommandHandler, ICommandHandler, EventBus } from '@nestjs/cqrs';
 
