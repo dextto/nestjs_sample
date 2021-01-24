@@ -1,4 +1,4 @@
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import { clear, advanceTo } from 'jest-date-mock';
 
 import { NotFoundException, UnprocessableEntityException } from '@nestjs/common';

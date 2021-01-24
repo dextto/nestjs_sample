@@ -1,5 +1,5 @@
 import * as crypto from 'crypto';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import { IsString, IsNotEmpty, IsDate } from 'class-validator';
 
 import { ValueObject } from '@util/ddd/ValueObject';
