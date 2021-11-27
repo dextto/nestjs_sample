@@ -3,8 +3,8 @@ import { Cron, SchedulerRegistry } from '@nestjs/schedule';
 import { CronJob } from 'cron';
 
 @Injectable()
-export class SampleTask {
-  private readonly logger = new Logger(SampleTask.name);
+export class TaskService {
+  private readonly logger = new Logger(TaskService.name);
 
   constructor(private scheduler: SchedulerRegistry) {
     this.addCronJob();

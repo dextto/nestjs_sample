@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ScheduleModule } from '@nestjs/schedule';
 
-import { BatchController } from './interface/batch.controller';
-import { SampleTask } from './sample/sample.task';
+import { BatchController } from './batch.controller';
+import { TaskService } from './task.service';
 
 // infrastructure
 
@@ -12,7 +12,7 @@ const controllers = [BatchController];
 // application
 
 // batch
-const batches = [SampleTask];
+const batches = [TaskService];
 
 @Module({
   imports: [
