@@ -44,7 +44,7 @@
     "admin-bro-expressjs": "^2.1.1",
     "admin-bro-typeorm": "^0.1.6-alpha.9",
     "class-transformer": "^0.3.1",
-    "class-validator": "^0.12.2",
+    "class-validator": "^0.14.0",
     "class-validator-message-formatter": "0.0.3",
     "cron": "^1.8.2",
     "dayjs": "^1.10.4",
