@@ -52,7 +52,7 @@
     "express": "^4.17.3",
     "express-formidable": "^1.2.0",
     "mysql2": "^2.2.5",
-    "nodemailer": "^6.4.16",
+    "nodemailer": "^6.6.1",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.0",
